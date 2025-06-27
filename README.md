@@ -1,2 +1,2 @@
-# Zoom
-A full stack video conferencing web application.
+# VideoMeet
+MERN stack based full stack video conferencing web application.

@@ -1,4 +1,4 @@
-# 📹 Video Conferencing App (Zoom Clone)
+# 📹 Video Conferencing App (VideoMeet)
 
 A full-stack video conferencing platform built using **React**, **Node.js**, **Express**, **MongoDB**, and **Socket.io**. This application allows users to **register/login**, **create or join meetings**, **share screens**, **chat in real-time**, and **view meeting history**.
 
@@ -30,8 +30,8 @@ A full-stack video conferencing platform built using **React**, **Node.js**, **E
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/video-conferencing-app.git
-cd video-conferencing-app
+git clone https://github.com/devpateriya/VideoMeet.git
+cd VideoMeet
  Author
 Dev Pateria
 
