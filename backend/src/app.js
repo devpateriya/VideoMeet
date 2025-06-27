@@ -18,23 +18,19 @@ app.use(express.urlencoded({ limit: "40kb", extended: true }));
 // Routes
 app.use("/api/v1/users", userRoutes);
 
-// Start server
 const start = async () => {
   try {
-    const connectionDb = await mongoose.connect(
-      "mongodb+srv://Dev2003:Devedsai%402003@cluster0.jbhmdfb.mongodb.net/VideoMeetApp?retryWrites=true&w=majority&appName=Cluster0"
-    );
-
+    const connectionDb = await mongoose.connect(process.env.MONGODB_URL);
     console.log(`✅ MONGO Connected DB Host: ${connectionDb.connection.host}`);
 
-    // Use process.env.PORT directly — works with Render
-    server.listen(process.env.PORT || 8000, () => {
-      console.log(`🚀 Listening on port ${process.env.PORT || 8000}`);
+    server.listen(process.env.PORT, () => {
+      console.log(`🚀 Listening on port ${process.env.PORT}`);
     });
   } catch (error) {
     console.error("❌ Error connecting to MongoDB:", error);
   }
 };
+
 
 start();
 
