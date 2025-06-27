@@ -10,13 +10,15 @@ const app = express();
 const server = createServer(app);
 const io = connectToSocket(server);
 
-app.set("port", process.env.PORT || 8000);
+// Middleware
 app.use(cors());
 app.use(express.json({ limit: "40kb" }));
 app.use(express.urlencoded({ limit: "40kb", extended: true }));
 
+// Routes
 app.use("/api/v1/users", userRoutes);
 
+// Start server
 const start = async () => {
   try {
     const connectionDb = await mongoose.connect(
@@ -25,8 +27,9 @@ const start = async () => {
 
     console.log(`✅ MONGO Connected DB Host: ${connectionDb.connection.host}`);
 
-    server.listen(app.get("port"), () => {
-      console.log(`🚀 Listening on port ${app.get("port")}`);
+    // ⚠️ Use process.env.PORT directly for Render
+    server.listen(process.env.PORT, () => {
+      console.log(`🚀 Listening on port ${process.env.PORT}`);
     });
   } catch (error) {
     console.error("❌ Error connecting to MongoDB:", error);
@@ -34,6 +37,7 @@ const start = async () => {
 };
 
 start();
+ 
 
 
 
